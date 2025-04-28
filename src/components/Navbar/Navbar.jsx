@@ -1,10 +1,13 @@
 
 import { NavLink } from "react-router";
 import './Navbar.css'
+import { use } from "react";
+import { AuthContext } from "../../Context/AuthContext";
 
 const Navbar = () => {
 
-
+const {user} = use(AuthContext);
+console.log(user);
 
 
     const links = <>
@@ -48,7 +51,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <a className="btn">{user ? 'Sign Out' : 'Sign In'}</a>
       </div>
     </div>
   );
